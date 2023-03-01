@@ -1,5 +1,5 @@
 
-
+const shorturl= document.getElementById("shorturl");
 document.getElementById("createCode").addEventListener("click",function(){
     let geturl=document.getElementById("code");
 const inputValue=geturl.value;
@@ -17,7 +17,22 @@ message.innerText="Url is Not Valid";
 
 }
 else{
- const shorturl= document.getElementById("shorturl");
+
+const short_link= data.result.full_short_link2;
+console.log(short_link)
+
+ shorturl.value=short_link
  
 }
+}
+
+const copyUrl=()=>{
+    if(shorturl.value===""){
+        shorturl.placeholder=`No Created Short Url`;
+        // shorturl.placeholder.style.color="red";
+    }
+    else{
+
+        navigator.clipboard.writeText(shorturl.value)
+    }
 }
